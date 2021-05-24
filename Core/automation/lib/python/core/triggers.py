@@ -366,8 +366,8 @@ def when(target):
             raise ValueError(u"when: \"{}\" could not be parsed. trigger_target '{}' is invalid for target_type 'Thing'. The only valid trigger_type values are 'added', 'removed', and 'updated'.".format(target, trigger_target))
         elif target_type == "Channel" and things.getChannel(ChannelUID(trigger_target)) is None:# returns null if Channel does not exist
             raise ValueError(u"when: \"{}\" could not be parsed because Channel '{}' does not exist".format(target, trigger_target))
-        elif target_type == "Channel" and things.getChannel(ChannelUID(trigger_target)).kind != ChannelKind.TRIGGER:
-            raise ValueError(u"when: \"{}\" could not be parsed because '{}' is not a trigger Channel".format(target, trigger_target))
+        #elif target_type == "Channel" and things.getChannel(ChannelUID(trigger_target)).kind != ChannelKind.TRIGGER:
+            #raise ValueError(u"when: \"{}\" could not be parsed because '{}' is not a trigger Channel".format(target, trigger_target))
         elif target_type == "System" and trigger_target != "started":# and trigger_target != "shuts down":
             raise ValueError(u"when: \"{}\" could not be parsed. trigger_target '{}' is invalid for target_type 'System'. The only valid trigger_type value is 'started'.".format(target, target_type))# and 'shuts down'".format(target, target_type))
         elif target_type in ["Directory", "Subdirectory"] and not path.isdir(trigger_target):
